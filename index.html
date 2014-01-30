@@ -1,39 +1,84 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <title>CS4720 HW1</title>
-  <link rel="stylesheet" type="text/css" href="/css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.min.css">
 </head>
 <body class="inner">
+  <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="#">DayTracker </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="#">About</a></li>
+              <li><a href="#">Data crunching</a></li>
+              <li><a href="#">Notes</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+  </div>
  <!-- wrapper -->
   <div id="wrapper">
-    <!-- header -->
-    <header id="header">
-      <img class="trans logo" alt="Chun Wanag" src="../images/chun.jpeg"/>
-    </header>
-
-    <!-- section -->
-    <section class="section">
-      <!-- container -->
-      <div class="container">
-        <!-- content-block -->
-        <div class="content-block">
-          <span class="info-column-title">Developer Info</span><br>
-          <span class="info-column-property">Name:</span> <span class="mark">Chun Wang</span><br>
-          <span class="info-column-property">Email:</span> <span class="mark">cw8df@virginia.edu</span><br>
-          <span class="info-column-property">Website:</span> <a target="_blank" href="http://www.chunjw.com">chunjw.com</a><br>
-          <br><br>
-          <span class="info-column-title">Site Info</span><br>
-          <span class="info-column-property">Git repo:</span> Periodic commits will be made to <a target="_blank" href="https://github.com/chunw/DayTracker">this repo</a>.<br>
-          <span class="info-column-property">Dev progress:</span><progress value="5" max="100"></progress><br>
-          <span class="info-column-property">Description:</span> This app tracks information about
-          my daily activities. For each activity, it tracks its date, time,
-          activity type, duration, any optional comments or related media
-          (photos, videos, audios).
+      <!-- sidebar -->
+      <section id="sidebar">
+        <div class="separator"></div>
+        Quick entry
+        <div id="activity-tags">
+          <span class="tag"><span>Programming</span></span>
+          <span class="tag"><span>In a class</span></span>
+          <span class="tag"><span>Reading stuff</span></span>
+          <span class="tag"><span>Writing stuff</span></span>
+          <span class="tag"><span>Other Homework</span></span><br>
+          <span class="tag"><span>Info crunching</span></span><br>
+          <span class="tag"><span>Travel</span></span>
+          <span class="tag"><span>Leisure time</span></span>
         </div>
+      </section>
+      <!-- main section -->
+      <section class="main">
+        <!-- container -->
+        <div class="container">
+          <!-- content-block -->
+          <div class="content-block">
+            <span class="info-column-title">Developer Info</span><br>
+            <span class="info-column-property">Name:</span> <span class="mark">Chun Wang</span><br>
+            <span class="info-column-property">Email:</span> <span class="mark">cw8df@virginia.edu</span><br>
+            <span class="info-column-property">Website:</span> <a target="_blank" href="http://www.chunjw.com">chunjw.com</a><br>
+            <br><br>
+            <span class="info-column-title">Site Info</span><br>
+            <span class="info-column-property">Git repo:</span> Periodic commits will be made to <a target="_blank" href="https://github.com/chunw/DayTracker">this repo</a>.<br>
+            <span class="info-column-property">Dev progress:</span><progress value="5" max="100"></progress><br>
+            <span class="info-column-property">Description:</span> This app tracks information about
+            my daily activities. For each activity, the app records its date, starting time,
+            activity type, duration, any optional comments or related media
+            (photos, videos, audios). Start each entry by clicking on one of the tags on the sidebar.<br>
+            <span class="info-column-property">HTML5 tags (HW1):</span> progress, section, audio, video
+          </div>
+          <div class="content-block">
+            <div id="ex4">
+              <img alt="time management is important" src="../images/time.jpg">
+            </div>
+          </div>
+        </div>
+        <div class="content-block">
+          <h3>The No.1 principle of time management: Know Your Purpose.</h3>
+          <video width="320" height="240" controls>
+            <source src="../video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p>Fire up some background music!</p>
+          <audio controls="controls">
+             <source src="../music.mp3" />
+          </audio>
+        </div>
+      </section>
 
-      </div>
-    </section>
   </div>
 </body>
 </html>
