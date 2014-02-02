@@ -71,8 +71,9 @@ progress {
   min-width: 610px;
   height: 100%;
   background-color: rgba(255,255,255,0.9);
-  position: relative;
   z-index: 1;
+  width:960px;
+  position: relative;
 }
 .content-block {
   width: 41.8798%;
@@ -80,7 +81,7 @@ progress {
   line-height: 22px;
   color: #333;
   float: left;
-  padding: 0px 0px 50px 60px;
+  padding: 0px 0px 23px 60px;
 }
 #activity-tags{
   padding: 5px 0px;
@@ -96,8 +97,15 @@ progress {
   border-radius: 10px;
   cursor: pointer;
 }
-#activity-tags .tag:hover{
+#data #activity-tags .tag {
+  background: #FFDBFF;
+  border: 1px solid #FF99FF;
+}
+#activity-tags.selectable .ui-selecting {
   background: #E2E224;
+}
+#activity-tags.selectable .ui-selected {
+  background: #E2E224; color: black;
 }
 /* special image effect */
 #ex4 {
@@ -119,4 +127,42 @@ progress {
   -webkit-transform: rotate(-7deg);
   -moz-transform: rotate(-7deg);
   -o-transform: rotate(-7deg);
+}
+/* date picker */
+#ui-datepicker-div {
+  padding: 5px 0px 10px 50px;
+}
+.ui-datepicker-header a {
+  padding: 0px 76px 0px 0px;
+}
+.ui-datepicker-title{
+  color: #dfad44;
+}
+/* form */
+#form {
+  margin-top: 5px;
+  font-size: 12px;
+}
+#form input {
+  width: 85px;
+  height: 8px;
+}
+#form input[type="submit"] {
+  width: 152px;
+  height: 18px;
+  padding: inherit;
+  color: rgb(38, 114, 180);
+}
+#droppable {
+  height: 100px;
+  border: 1px solid rgb(177, 171, 171);
+}
+#droppable p {
+  font-size:11px;
+  padding: 5px;
+}
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+border: 1px solid #fcefa1;
+background: #EBFFE0;
+color: #363636;
 }
