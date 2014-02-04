@@ -36,7 +36,7 @@
             <ul class="nav">
               <li><a href="#about">About</a></li>
               <li><a href="#data">Data crunching</a></li>
-              <li><a href="#notes">Notes</a></li>
+              <li><a href="#notes">My activities</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
           </div>
@@ -49,7 +49,7 @@
       <section id="sidebar">
         <div class="separator"></div>
         Quick entry
-        <div id="activity-tags" class="selectable">
+        <div class="activity-tags selectable">
           <span class="tag ui-widget-content" title="Todo: add data crunching features">Programming</span>
           <span class="tag ui-widget-content">In a class</span>
           <span class="tag ui-widget-content">Reading stuff</span>
@@ -59,10 +59,17 @@
           <span class="tag ui-widget-content">Travel</span>
           <span class="tag ui-widget-content">Leisure time</span>
         </div>
-
-        <form id="form" style="display:none;" action="#">
-          Start time: <input type="text" id="start_time" size="10" autocomplete="OFF">
-          End time: <input type="text" id="end_time" size="10" autocomplete="OFF">
+        <script>
+          function getCategory() {
+            return $(".ui-selected").html();
+          }
+        </script>
+        <form id="form" style="display:none;" action="form.php" method="POST">
+          <input type="hidden" id="category" name="category">
+          Start time: <input type="text" id="start_time" name="start_time" size="10" autocomplete="OFF">
+          End time: <input type="text" id="end_time" name="end_time" size="10" autocomplete="OFF">
+          Notes: <input type="text" id="note" name="note" placeholder="Optional" size="10" autocomplete="OFF">
+          Media link: <input type="text" id="media" placeholder="Optional" name="media" size="10" autocomplete="OFF">
           <input type="submit" value="add">
         </form>
       </section>
@@ -87,7 +94,7 @@
             <span class="info-column-title">Analyze Past Activities</span><br>
             <p>Pick a date to view activities: <input type="text" id="datepicker"></p>
              <p>Or view activities by category: </p>
-            <div id="activity-tags">
+            <div class="activity-tags">
               <span class="tag draggable ui-widget-content" title="Todo: add data crunching features">Programming</span>
               <span class="tag draggable ui-widget-content">In a class</span>
               <span class="tag draggable ui-widget-content">Reading stuff</span>
@@ -103,7 +110,7 @@
 
           </div>
           <div class="content-block">
-            <h3>The No.1 principle of time management: Know Your Purpose.</h3>
+            <h3>The No.1 principle of time management: <span class="mark"> Know Your Purpose. </span></h3>
             <br>
             <p>Fire up some background music!</p>
             <audio controls="controls">
@@ -122,6 +129,7 @@
   <script>
     $(".selectable .tag").click(function() {
       $( "#form" ).show();
+      $('#category').val(getCategory());
     });
   </script>
 </body>

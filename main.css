@@ -83,10 +83,10 @@ progress {
   float: left;
   padding: 0px 0px 23px 60px;
 }
-#activity-tags{
+.activity-tags{
   padding: 5px 0px;
 }
-#activity-tags .tag {
+.activity-tags .tag {
   font-size: 11px;
   color: #6E724E;
   padding: 2px 5px;
@@ -97,14 +97,14 @@ progress {
   border-radius: 10px;
   cursor: pointer;
 }
-#data #activity-tags .tag {
+#data .activity-tags .tag {
   background: #FFDBFF;
   border: 1px solid #FF99FF;
 }
-#activity-tags.selectable .ui-selecting {
+.activity-tags.selectable .ui-selecting {
   background: #E2E224;
 }
-#activity-tags.selectable .ui-selected {
+.activity-tags.selectable .ui-selected {
   background: #E2E224; color: black;
 }
 /* special image effect */
@@ -138,6 +138,9 @@ progress {
 .ui-datepicker-title{
   color: #dfad44;
 }
+#ui-datepicker-div{
+  top: 280px !important;
+}
 /* form */
 #form {
   margin-top: 5px;
@@ -153,6 +156,7 @@ progress {
   padding: inherit;
   color: rgb(38, 114, 180);
 }
+/* droppable tags */
 #droppable {
   height: 100px;
   border: 1px solid rgb(177, 171, 171);
@@ -165,4 +169,18 @@ progress {
 border: 1px solid #fcefa1;
 background: #EBFFE0;
 color: #363636;
+}
+/* form.php */
+.activity-confirmation {
+  padding: 10px;
+  background-color: #FFEFD5;
+  border: 1px solid #FFD700;
+}
+.activity-confirmation h3 {
+  font-size: 19px;
+  color: rgb(243, 144, 18);
+}
+.activity-confirmation p {
+  font-size: 15px;
+  color: rgb(100, 58, 4);
 }
