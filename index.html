@@ -79,7 +79,7 @@
           <div class="content-block" id="about">
             <span class="info-column-title">Site Info</span><br>
             <span class="info-column-property">Git repo:</span> Periodic commits will be made to <a target="_blank" href="https://github.com/chunw/DayTracker">this repo</a>.<br>
-            <span class="info-column-property">Dev progress:</span><span><progress value="22" max="100"></progress></span><br>
+            <span class="info-column-property">Dev progress:</span><span><progress value="50" max="100"></progress></span><br>
             <span class="info-column-property">Description:</span> This app tracks information about
             my daily activities. For each activity, the app records its date, starting time,
             activity type, duration, any optional comments or related media
@@ -92,7 +92,8 @@
           </div>
           <div class="content-block" id="data">
             <span class="info-column-title">Analyze Past Activities</span><br>
-            <p>Pick a date to view activities: <input type="text" id="datepicker"></p>
+            <span>Pick a date to view activities: <input type="text" id="datepicker">
+            <button id="activityLookupByDate" class="myButton">View</button></span>
              <p>Or view activities by category: </p>
             <div class="activity-tags">
               <span class="tag draggable ui-widget-content" title="Todo: add data crunching features">Programming</span>
@@ -106,9 +107,22 @@
             </div>
             <div id="droppable" class="ui-widget-header">
               <p>Drop tags here</p>
+              <button id="activityLookupByCategory" class="myButton">View</button>
             </div>
-
+            <div id="activity-table">PLEASE NOTE that this section does not have full functionality now. </div>
           </div>
+
+          <div class="content-block" id="courses">
+            <span class="info-column-title">Quick Course Lookup</span><br>
+             <p>Find out what to do for my day. </p>
+             <span>Course to look up: <input type="input" placeholder="cs4720" name="courseNumber" id="courseNumber"/>
+             <button id="courseLookup" class="myButton">View</button></span>
+             <div id="courseInfo"><h5>Course Information</h5></div>
+             <span><input type="input" name="updatedHW" id="updatedHW"/>
+             <button class="updateHWfield myButton">Update Next Due </button></span>
+             <p id="updated_confirmation"></p>
+          </div>
+
           <div class="content-block">
             <h3>The No.1 principle of time management: <span class="mark"> Know Your Purpose. </span></h3>
             <br>
@@ -131,6 +145,45 @@
       $( "#form" ).show();
       $('#category').val(getCategory());
     });
+
+    //Todo
+    /*
+    $( "#activityLookupByDate" ).click(function() {
+      console.log("click!");
+      $.ajax({
+          url: 'db.php',
+          data: {dateToLookup: $( "#datepicker" ).val()},
+          success: function(data){
+              $('#courseTable').html(data);
+          }
+      });
+    });
+    */
+
+    $( "#courseLookup" ).click(function() {
+      console.log($( "#courseNumber" ).val());
+      $.ajax({
+          url: 'db.php',
+          data: {courseNumber: $( "#courseNumber" ).val()},
+          success: function(data){
+              $('#courseInfo').html(data);
+          }
+      });
+    });
+
+    $( ".updateHWfield" ).click(function() {
+      $.ajax({
+          url: 'db.php',
+          data: {
+            HW:                $( "#updatedHW" ).val(),
+            courseNumToUpdate: $( "#courseNumber" ).val()
+          },
+          success: function(data){
+              $('#updated_confirmation').html(data);
+          }
+      });
+    });
+
   </script>
 </body>
 </html>
