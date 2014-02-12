@@ -15,7 +15,7 @@
           <a class="brand" href="#">DayTracker </a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li><a href="http://plato.cs.virginia.edu/~cw8df/hw2/">Home</a></li>
+              <li><a href="http://plato.cs.virginia.edu/~cw8df/hw3/">Home</a></li>
             </ul>
           </div>
         </div>
@@ -38,18 +38,10 @@
               $media_link = $_POST["media"];
             ?>
             <div class="activity-confirmation">
-              <h3>
-                  Activity added.
-              </h3>
-              <p>
-                  <?php
-                    //TODO: parse current date
-                    $date = "02/09/2014";
 
-                    echo "<b>Category:</b> $category <br>";
-                    echo "<b>Date:</b> $date <br>";
-                    echo "<b>Start time:</b> $start_time <br>";
-                    echo "<b>End time:</b> $end_time <br>";
+                  <?php
+                    date_default_timezone_set("US/Eastern");
+                    $date = date("m/d/Y");
 
                     //TODO form field validation (check start time < end time && end time != 12:00am)
                      $arr1 = explode(':', $start_time);
@@ -81,9 +73,7 @@
                       $minute_diff = 60 + $minute_diff;
                     }
                     $duration = "$hour_diff hours, $minute_diff minutes";
-                    echo "<b>Duration:</b> $duration <br>";
-                    echo "<b>Notes:</b> $notes <br>";
-                    echo "<b>Media link:</b> $media_link <br>";
+
 
                     //save data to db
                     $db_connection = new mysqli("stardock.cs.virginia.edu", "cs4720cw8df", "spring2014", "cs4720cw8df");
@@ -92,15 +82,26 @@
                         echo "Error connecting to database.";
                     } else {
                       $stmt = $db_connection->stmt_init();
-                      if($stmt->prepare("INSERT INTO `activities` (Category, Date, Start_time, End_time, Duration, Notes, Media_link) values(?,?,?,?,?,?,?);")) {
-                          $stmt->bind_param("s", $category, $date, $start_time, $end_time, $duration, $notes, $media_link);
+                      if($stmt->prepare("insert into activities (Category, Date_created, Start_time, End_time, Duration, Notes, Media_link) values (?,?,?,?,?,?,?)")) {
+                          $stmt->bind_param("sssssss", $category, $date, $start_time, $end_time, $duration, $notes, $media_link);
                           $stmt->execute();
                           $inserts = $db_connection->affected_rows;
-                          echo $inserts . " rows inserted!";
-                      } else {
-                          echo "<br><b style="color:red;"> Failed to save activity.</b>";
+                          if ($inserts > 0) {
+                            echo "<h3> Activity added. </h3>";
+                          }
+                          else {
+                            echo "<h3> Failed to add activity. </h3>";
+                          }
                       }
                     }
+
+                    echo "<p><b>Category:</b> $category <br>";
+                    echo "<b>Date:</b> $date <br>";
+                    echo "<b>Start time:</b> $start_time <br>";
+                    echo "<b>End time:</b> $end_time <br>";
+                    echo "<b>Duration:</b> $duration <br>";
+                    echo "<b>Notes:</b> $notes <br>";
+                    echo "<b>Media link:</b> $media_link </p>";
                   ?>
               </p>
             </div>

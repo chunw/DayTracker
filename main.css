@@ -6,7 +6,7 @@ body {
   background:#fff;
   -webkit-text-size-adjust:100%;
   -ms-text-size-adjust: none;
-  min-width:480px;
+  min-width:480px;≤
   padding: 0;
   height:100%;
 }
@@ -74,6 +74,7 @@ progress {
   z-index: 1;
   width:960px;
   position: relative;
+  font-family: "Open Sans","Helvetica Neue", Helvetica,Arial,sans-serif !important;
 }
 .content-block {
   width: 41.8798%;
@@ -140,6 +141,7 @@ progress {
 }
 #ui-datepicker-div{
   top: 280px !important;
+  left: 413px !important;
 }
 /* form */
 #form {
@@ -170,11 +172,38 @@ border: 1px solid #fcefa1;
 background: #EBFFE0;
 color: #363636;
 }
+#activity-table {
+  height: 300px;
+  overflow: scroll;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #FFFAD2;
+  border: 1px solid #ffd700;
+}
+#activity-table h5 {
+  color: #BBB4B4;
+  font-size: 14px;
+  font-weight: normal;
+}
+#activity-table h6 {
+  padding: 9px 0px;
+  font-size: 14px;
+  color: #000000;
+  text-transform: none;
+}
+#activity-table p {
+  color: #6d84b4;
+  font-size: 11px;
+}
+#activity-table hr {
+  border-top: 1px solid #D3B1B1;
+}
 /* form.php */
 .activity-confirmation {
   padding: 10px;
   background-color: #FFEFD5;
   border: 1px solid #FFD700;
+  text-transform: none;
 }
 .activity-confirmation h3 {
   font-size: 19px;
@@ -183,4 +212,59 @@ color: #363636;
 .activity-confirmation p {
   font-size: 15px;
   color: rgb(100, 58, 4);
+}
+/* course info */
+#courseInfo {
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #FFEFD5;
+  border: 1px solid #FFD700;
+}
+#courseInfo  h6 {
+  font-size: 13px;
+  color: rgb(243, 144, 18);
+  padding-bottom: 10px;
+}
+#courseInfo h5 {
+  color: #BBB4B4;
+  font-size: 14px;
+  font-weight: normal;
+}
+#courseInfo  p {
+  font-size: 13px;
+  color: rgb(100, 58, 4);
+  line-height: 8px;
+}
+#updated_confirmation {
+  color: rgb(243, 144, 18);
+  font-size: 14px;
+}
+
+/* buttons */
+.myButton {
+  background-color: rgb(228, 242, 255);
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 10px;
+  border: 1px solid rgb(191, 222, 250);
+  display: inline-block;
+  cursor: pointer;
+  font-family: arial;
+  padding: 2px 5px;
+  font-size: 11px;
+  text-decoration: none;
+  color: #34B1F0;
+  margin-top: -9px;
+}
+.myButton:hover {
+  background: #DFEAF0;
+}
+button#activityLookupByCategory{
+  margin-top: 28px;
+  margin-left: 344px;
+}
+input#updatedHW {
+  width: 268px;
+}
+input#courseNumber {
+  width: 200px;
 }
